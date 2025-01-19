@@ -54,8 +54,9 @@ void MoveTo(double X, double Y, double Z) {
 
   double H = sqrt(X*X + Y*Y);
   double length = sqrt(H*H + Z*Z);
-  double tibia_angle = acos((femur_length*femur_length + tibia_length*tibia_length - length*length)/(2*femur_length*tibia_length));
-  double B = acos((length*length + femur*femur - tibia*tibia)/(2*length*femur_length));
-  double A = atan(Z/H);
-  double femur_angle = B + A;
+  double tibia_angle = acos((femur_length*femur_length + tibia_length*tibia_length - length*length)/(2*femur_length*tibia_length))*(180/PI);
+  double B = acos((length*length + femur*femur - tibia*tibia)/(2*length*femur_length))*(180/PI);
+  double A = atan(Z/H)*(180/PI);
+  double femur_angle = (B + A);
+  double coxa_angle = atan(X/Y)*(180/PI);
 }
