@@ -34,9 +34,9 @@ Servo tibia6;
 const double femur_length = 52.5; // mm
 const double tibia_length = 100; // mm
 
-const double Y_Rest = ???;
-const double Z_Rest = ???;
-const double tibia_extra_angle = ???;
+const double Y_Rest = 60.0; // estimated
+const double Z_Rest = -75.0; // estimated
+const double tibia_extra_angle = 15.0; // estimated !!! measure later
 
 void setup() {
   // put your setup code here, to run once:  
@@ -46,17 +46,27 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+  MoveTo();
+  delay(2000);
 }
 
-void MoveTo(double X, double Y, double Z) {
+void MoveTo(Servo& coxa, Servo& femur, Servo& tibia, double X, double Y, double Z) {
   Y += Y_Rest;
   Z += Z_Rest;
 
   double H = sqrt(X*X + Y*Y);
   double length = sqrt(H*H + Z*Z);
-  double tibia_angle = acos((femur_length*femur_length + tibia_length*tibia_length - length*length)/(2*femur_length*tibia_length))*(180/PI);
-  double B = acos((length*length + femur*femur - tibia*tibia)/(2*length*femur_length))*(180/PI);
+  double tibia_angle = acos((femur_length*femur_length+tibia_length*tibia_length- \
+  length*length)/(2*femur_length*tibia_length))*(180/PI);
+  double B = acos((length*length+femur*femur-tibia*tibia)/(2*length*femur_length))*(180/PI);
   double A = atan(Z/H)*(180/PI);
   double femur_angle = (B + A);
   double coxa_angle = atan(X/Y)*(180/PI);
+
+  coxa.write(90 - coxa_angle);
+  femur.write(femur_angle);
+  tibia.write(tibia_angle + tibia_extra_angle - 90);
 }
+
+
+
