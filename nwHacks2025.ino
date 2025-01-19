@@ -102,16 +102,16 @@ void loop() {
   // tibia1.write(85);
   // MoveTo(coxa2, femur2, tibia2, 0, 0, 0);
   // MoveTo(coxa3, femur3, tibia3, 0, 0, 0);
-  delay(1000);
+  delay(500);
 
   MoveTo(coxa1, femur1, tibia1, 60, 0, -50);
   // tibia1.write(30);
   // MoveTo(coxa2, femur2, tibia2, -30, 40, 20);
   // MoveTo(coxa3, femur3, tibia3, -30, 40, 20);
-  delay(1000);
+  delay(500);
 
   MoveTo(coxa1, femur1, tibia1, 60, 0, 0);
-  delay(1000);
+  delay(500);
 }
 
 void MoveTo(Servo& coxa, Servo& femur, Servo& tibia, double X, double Y, double Z) {
