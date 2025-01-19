@@ -36,7 +36,7 @@ const double tibia_length = 100; // mm
 
 const double Y_Rest = 60.0; // estimated
 const double Z_Rest = -75.0; // estimated
-const double tibia_extra_angle = 15.0; // estimated !!! measure later
+const double tibia_extra_angle = 50.0; // estimated !!! measure later
 
 // PINS FOR ARDUINO 1
 const int coxa1Pin = 5; // Arduino 1
@@ -104,7 +104,7 @@ void loop() {
   // MoveTo(coxa3, femur3, tibia3, 0, 0, 0);
   delay(1000);
 
-  //MoveTo(coxa1, femur1, tibia1, 40, 40, -30);
+  MoveTo(coxa1, femur1, tibia1, 60, 0, 20);
   // tibia1.write(30);
   // MoveTo(coxa2, femur2, tibia2, -30, 40, 20);
   // MoveTo(coxa3, femur3, tibia3, -30, 40, 20);
