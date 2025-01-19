@@ -34,13 +34,13 @@ Servo tibia6;
 const double femur_length = 52.5; // mm
 const double tibia_length = 100; // mm
 
-const double Y_Rest = 50.0; // estimated
-const double Z_Rest = 130.0; // estimated
-const double tibia_extra_angle = 45.0; // estimated !!! measure later
+const double Y_Rest = 60.0; // estimated
+const double Z_Rest = -75.0; // estimated
+const double tibia_extra_angle = 15.0; // estimated !!! measure later
 
 // PINS FOR ARDUINO 1
-const int coxa1Pin = 3; // Arduino 1
-const int femur1Pin = 5;
+const int coxa1Pin = 5; // Arduino 1
+const int femur1Pin = 3;
 const int tibia1Pin = 7;
 
 // const int coxa2Pin = 5;
@@ -97,11 +97,15 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   MoveTo(coxa1, femur1, tibia1, 0, 0, 0);
+  // coxa1.write(130);
+  // femur1.write(20);
+  // tibia1.write(85);
   // MoveTo(coxa2, femur2, tibia2, 0, 0, 0);
   // MoveTo(coxa3, femur3, tibia3, 0, 0, 0);
   delay(1000);
 
-  MoveTo(coxa1, femur1, tibia1, 40, 40, -30);
+  //MoveTo(coxa1, femur1, tibia1, 40, 40, -30);
+  // tibia1.write(30);
   // MoveTo(coxa2, femur2, tibia2, -30, 40, 20);
   // MoveTo(coxa3, femur3, tibia3, -30, 40, 20);
   delay(1000);
@@ -137,7 +141,7 @@ void MoveTo(Servo& coxa, Servo& femur, Servo& tibia, double X, double Y, double 
 
   coxa.write(90 - coxa_angle);
   femur.write(90 - femur_angle);
-  tibia.write(tibia_angle + tibia_extra_angle - 90);
+  //tibia.write(tibia_angle + tibia_extra_angle - 90);
 }
 
 
