@@ -15,21 +15,21 @@ Servo coxa2;
 Servo femur2;
 Servo tibia2;
 
-Servo coxa3;
-Servo femur3;
-Servo tibia3;
+// Servo coxa3;
+// Servo femur3;
+// Servo tibia3;
 
-Servo coxa4;
-Servo femur4;
-Servo tibia4;
+// Servo coxa4;
+// Servo femur4;
+// Servo tibia4;
 
-Servo coxa5;
-Servo femur5;
-Servo tibia5;
+// Servo coxa5;
+// Servo femur5;
+// Servo tibia5;
 
-Servo coxa6;
-Servo femur6;
-Servo tibia6;
+// Servo coxa6;
+// Servo femur6;
+// Servo tibia6;
 
 const double femur_length = 52.5; // mm
 const double tibia_length = 100; // mm
@@ -39,13 +39,13 @@ const double Z_Rest = -75.0; // estimated
 const double tibia_extra_angle = 50.0; // estimated !!! measure later
 
 // PINS FOR ARDUINO 1
-const int coxa1Pin = 5; // Arduino 1
+const int coxa1Pin = 2; // Arduino 1
 const int femur1Pin = 3;
-const int tibia1Pin = 7;
+const int tibia1Pin = 4;
 
-// const int coxa2Pin = 5;
-// const int femur2Pin = 6;
-// const int tibia2Pin = 7;
+const int coxa2Pin = 5;
+const int femur2Pin = 6;
+const int tibia2Pin = 7;
 
 // const int coxa3Pin = 10;
 // const int femur3Pin = 9;
@@ -70,9 +70,9 @@ void setup() {
   femur1.attach(femur1Pin);
   tibia1.attach(tibia1Pin);
 
-  // coxa2.attach(coxa2Pin);
-  // femur2.attach(femur2Pin);
-  // tibia2.attach(tibia2Pin);
+  coxa2.attach(coxa2Pin);
+  femur2.attach(femur2Pin);
+  tibia2.attach(tibia2Pin);
 
   // coxa3.attach(coxa3Pin);
   // femur3.attach(femur3Pin);
@@ -97,20 +97,35 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   MoveTo(coxa1, femur1, tibia1, 0, 0, 0);
+  MoveTo(coxa2, femur2, tibia2, 0, 0, 0);
+
   // coxa1.write(130);
   // femur1.write(20);
   // tibia1.write(85);
-  // MoveTo(coxa2, femur2, tibia2, 0, 0, 0);
+
+  // coxa2.write(130);
+  // femur2.write(20);
+  // tibia2.write(85);
+  MoveTo(coxa2, femur2, tibia2, 0, 0, 0);
   // MoveTo(coxa3, femur3, tibia3, 0, 0, 0);
   delay(500);
 
   MoveTo(coxa1, femur1, tibia1, 60, 0, -50);
+  MoveTo(coxa2, femur2, tibia2, 60, 0, -50);
   // tibia1.write(30);
+  // coxa1.write(120);
+  // femur1.write(30);
+  // tibia1.write(100);
+
+  // coxa2.write(120);
+  // femur2.write(30);
+  // tibia2.write(100);
   // MoveTo(coxa2, femur2, tibia2, -30, 40, 20);
   // MoveTo(coxa3, femur3, tibia3, -30, 40, 20);
   delay(500);
 
   MoveTo(coxa1, femur1, tibia1, 60, 0, 0);
+  MoveTo(coxa2, femur2, tibia2, 60, 0, 0);
   delay(500);
 }
 
