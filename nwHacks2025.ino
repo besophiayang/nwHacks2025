@@ -39,7 +39,7 @@ const double Z_Rest = ???;
 const double tibia_extra_angle = ???;
 
 void setup() {
-  // put your setup code here, to run once:
+  // put your setup code here, to run once:  
 
   WiFi.softAP(ssid,password);
 }
@@ -49,5 +49,13 @@ void loop() {
 }
 
 void MoveTo(double X, double Y, double Z) {
-  double 
+  Y += Y_Rest;
+  Z += Z_Rest;
+
+  double H = sqrt(X*X + Y*Y);
+  double length = sqrt(H*H + Z*Z);
+  double tibia_angle = acos((femur_length*femur_length + tibia_length*tibia_length - length*length)/(2*femur_length*tibia_length));
+  double B = acos((length*length + femur*femur - tibia*tibia)/(2*length*femur_length));
+  double A = atan(Z/H);
+  double femur_angle = B + A;
 }
